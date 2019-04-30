@@ -1,0 +1,85 @@
+/*
+
+	Template Name:Life
+	Description:极简主义者
+	Version:1.1
+	Author:Secret
+	Author Url:http://blog.myiooc.cn
+	Sidebar Amount:0
+
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	color: #555;
+	font-size: 16px;
+	font-family: "Microsoft Jhenghei","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+	line-height: 1.8;
+}
+
+a,u {
+	position: relative;
+	display: inline-block;
+	color: #3ac19f;
+	text-decoration: none;
+	word-break: break-all;
+}
+
+a:hover {
+	-webkit-animation: links .1s 3;
+}
+
+ol li {
+	list-style: decimal;
+}
+
+ul li {
+	list-style-type: square;
+}
+
+div {
+	display: block;
+}
+
+input,textarea{
+	outline: none;
+}
+
+::selection {
+	background: #262a30;
+	color: #fff;
+}
+
+.main {
+	margin: 0 auto;
+	padding-top: 40px;
+	width: 700px;
+}
+
+/*
+	顶部样式
+*/
+
+header {
+	width: 100%;
+	background: #3ac19f;
+}
+
+.intro {
+	padding: 10px 0 10px 0;
+	width: 100%;
+	text-align: center;
+	transition: all .5s;
+	-webkit-animation: nav-down .5s;
+	animation: nav-down .5s;
+}
+
+.intro:hover .intro-logo {
+	transform: rotate(360deg);
+}
+
+.intro:hov
