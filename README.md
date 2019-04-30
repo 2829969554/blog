@@ -19,7 +19,11 @@
 
 接口环境:php+sqlite,
 
-接口位于:https://www.anqikeji.xyz/api/index.php
+接口1位于:https://www.anqikeji.xyz/api/index.php
+
+备用接口1位于:https://h5.anqikeji.xyz/api.php
+
+备用接口2位于:https://qnmwdc.coding.io/api.php
 
 这个接口属于源站的
 
