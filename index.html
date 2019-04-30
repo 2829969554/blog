@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title id="titles"></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+
+	<meta name="msapplication-TileColor" content="#3ac19f"/>
+	<!-- 请将站点icon和图表放到站点根目录 -->
+	<link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+	<meta name="msapplication-TileImage" content="favicon.ico"/>
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/iconfont.css">
+	</head>
+<body>
+<script type="text/javascript">
+		//get
+	function getPar(par){
+    //获取当前URL
+    var local_url = document.location.href; 
+    //获取要取得的get参数位置
+    var get = local_url.indexOf(par +"=");
+    if(get == -1){
+        return false;   
+    }   
+    //截取字符串
+    var get_par = local_url.slice(par.length + get + 1);    
+    //判断截取后的字符串是否还有其他get参数
+    var nextPar = get_par.indexOf("&");
+    if(nextPar != -1){
+        get_par = get_par.slice(0, nextPar);
+    }
+    return get_par;
+}
+	//cookie操作
+	//读cookie
+	function getCookie(cname){
+	  var name = cname + "=";
+	  var ca = document.cookie.split(';');
+	  for(var i=0; i<ca.length; i++) 
+	  {
+	    var c = ca[i].trim();
+	    if (c.indexOf(name)==0) 
+	    	return c.substring(name.length,c.length);
+	  }
+	  return "";
+	}
+	//设置cookie
+	function setCookie(cname,cvalue,exdays){
+	  var d = new Date();
+	  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+	  var expires = "expires="+d.toGMTString();
+	  document.cookie = cname + "=" + cvalue + "; " + expires;
+	}
+</script>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/base64.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript">
+		var url = window.location.href;
+		var index = url.lastIndexOf("\/");
+		username = getPar("username");
+		if(username.length==null){
+
+			window.location.href="index.html?username=2829969554";
+
+		}
+
+	//获取博客分类列表
+		var blog_types;
+	if(document.cookie.indexOf("blog_types=") ==-1){
+		 $.get("https://www.anqikeji.xyz/api/index.php?get_blog_type_list",function(data,status){
+			//document.write(status);
+			blog_types=data;
+			setCookie("blog_types",JSON.stringify(blog_types),1);
+			if(status !="success"){
+	    		alert('no(blog_types)');
+	    	}
+	    		    	
+	 	 });
+ 	 }else{
+
+ 	 	blog_types=JSON.parse(getCookie("blog_types"));
+ 	 }	
+	
+	//获取个人信息
+	var obj_info, user;
+		$.get("https://www.anqikeji.xyz/api/index.php?get_user&username="+username,function(data,status){
+			//document.write(status);
+	    	if(status =="success"){
+	    	obj_info =data;
+	    	if(obj_info.lang==1){
+
+	    		user=obj_info["date"];
+	    		//alert(user);
+	    		document.getElementById("titles").innerHTML=user.name;
+	    		document.getElementById("footer1").innerHTML=user.name;
+	    		document.getElementById("footer2").innerHTML=user.name;
+	    		document.getElementById("title_h1").innerHTML=user.name;
+	    		document.getElementById("autograph").innerHTML=user.autograph;
+	    		document.getElementById("tximg").src="https://www.anqikeji.xyz/img/"+ user.http;
+	    		document.getElementById("qq_href").href="tencent://message/?uin="+user.QQ+"&Site=&Menu=yes";
+	    		document.getElementById("mail_href").href="mailto:"+user.QQ+"@qq.com";
+	    		document.getElementById("weibo_href").href="https://weibo.com/"+user.QQ;
+	    		/*
+				user.name
+				user.QQ
+				user.http
+				user.autograph
+	    		*/	
+	    	}else{
+	    		alert("no(get_user1)");
+	    	}
+
+	    	}else{
+	    		alert('no(get_user2)');
+	    	}
+	 	 });
+
+
+
+
+
+
+
+ 	 //获取个人博客列表
+ 	 	$.get("https://www.anqikeji.xyz/api/index.php?get_body_blog_list&username="+username,function(data,status){
+		//document.write(status);
+    	if(status =="success"){
+    	var b = new Base64();  
+
+    		var obj =data;
+    		var index="s";
+    		var rows = obj["date"];
+    		for (var i =obj.lang-1; i >=0; i--) {//最新的在上面
+    		    
+    			index="s"+i;
+    			var rows2 = rows[index];
+    			/*
+       			document.write(rows2.id);
+    			document.write(rows2.title);
+    			document.write(rows2.veiws);
+    			document.write(rows2.username);
+    			document.write(rows2.time);
+    			document.write(rows2.type);
+    			document.write(rows2.good);
+    			
+    			document.getElementById("test").innerHTML =b.decode(rows2.content);
+
+
+				*/
+				var dates=blog_types['date'];
+				var date=dates['s'+rows2.type];
+				
+				document.getElementById("blogs").innerHTML +="<div class='article'><div class='article-title'><a target='_blank' href='show.html?username="+rows2.username+ "&index="+i+"'>"+rows2.title+"			</a></div><small class='article-time'>发表于 "+rows2.time+" | | 		    <span>"+date.type+"</span></small></div>";
+
+    		}
+
+    	}else{
+    		alert('no(get_body_blog_list)');
+    	}
+ 	 });	
+ 	 </script>	
+<header>
+<div class="main">
+	<div class="intro">
+		<!-- 调用后台上传的头像，请到后台上传 -->
+		<img src="" id="tximg" class="intro-logo"/>
+		<span class="intro-sitename"><a id ="title_h1" href="#"></a></span>
+		<span class="intro-siteinfo" id="autograph"></span>
+		<span class="social">
+		<!-- 
+			联系方式中不需要的链接可直接删除
+		-->
+		<!-- 调用QQ链接，请到 http://shang.qq.com/ 申请-->
+		<a id="qq_href" href="#" target="_blank"><i class="iconfont icon-qq"></i></a>
+		<!-- 邮箱链接，格式:mailto:mail@mail.com -->
+		<a id="mail_href" href="#" target="_blank"><i class="iconfont icon-mail"></i></a>
+		<!-- 微博链接,格式:https://www.weibo.com/weiboid -->
+		<a id="weibo_href" href="#" target="_blank"><i class="iconfont icon-weibo"></i></a>
+		<!-- GitHub链接，格式:https://www.github.com/yourid -->
+		<a  target="_blank"><i class="iconfont icon-github"></i></a>
+		<!-- Coding链接，格式:https://coding.net/u/yourid -->
+		<a  target="_blank"><i class="iconfont icon-coding"></i></a>
+		</span>
+	</div>
+	
+	<nav>
+	<div class="collapse">
+		<i class="iconfont icon-menu"></i>
+	</div>
+	<ul class="bar">
+					<li><a href="#">首页</a></li>
+					
+	</ul>
+	</nav>
+</div>
+</header>
+<content>
+<div class="main">
+<div id="blogs">	
+<!--例子
+<div class="article">
+		<div class="article-title">
+			<a href="https://www.ff2t.cn/16.html">
+			记录测试婊弟网站 XSS注入			</a>
+					</div>
+		<small class="article-time">发表于 2019-1-15 | | 		    <span>暂无分类</span>
+	 		</small>
+</div>
+-->
+</div>
+<!--
+		<div class="page-url"></div>
+	<div class="pagination">
+		 <span>1</span>  <a href="https://www.ff2t.cn/page/2">2</a>  <a href="https://www.ff2t.cn/page/3">3</a> 	
+		 </div>
+-->		 
+</div>
+	</content>
+	<footer>
+		&nbsp;&nbsp;&nbsp;&nbsp;14.41ms<br>
+		© 2015-至今 
+		<a id="footer1" href="#"></a> 
+		<i class="iconfont icon-icp"></i>
+		<br>Powered by 
+		<a id="footer2" href="#"> </a>
+	</footer>
+	<div class="toTop">TOP</div>
+
+<!-- 一言调用（副标题），不需要可以删除下面一行 -->
+<script src="js/scrolltop.js"></script>
+<script src="js/collapse.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<!-- Instantclick -->
+<script data-no-instant>InstantClick.init();</script>
+</body>
+</html>
