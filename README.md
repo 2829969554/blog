@@ -19,7 +19,7 @@
 
 访问地址规则:"https://qnmwdc.coding.io/index.html?username=" +源站的博客账号
 
-访问地址规则:"https://www.anqikeji.xyz/blog/api/ui/index.html?username=" +源站的博客账号
+访问地址规则:"https://www.anqikeji.xyz/api/ui/index.html?username=" +源站的博客账号
 
 默认是跳转本作者自己的博客********默认是跳转本作者自己的博客************默认是跳转本作者自己的博客
 
