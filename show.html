@@ -13,61 +13,27 @@
 
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/iconfont.css">
-	</head>
-<body>
-<script type="text/javascript">
-		 var message_lang;
-		 var blog_id;
-	//get
-	function getPar(par){
-    //获取当前URL
-    var local_url = document.location.href; 
-    //获取要取得的get参数位置
-    var get = local_url.indexOf(par +"=");
-    if(get == -1){
-        return false;   
-    }   
-    //截取字符串
-    var get_par = local_url.slice(par.length + get + 1);    
-    //判断截取后的字符串是否还有其他get参数
-    var nextPar = get_par.indexOf("&");
-    if(nextPar != -1){
-        get_par = get_par.slice(0, nextPar);
-    }
-    return parseInt(get_par);
-}
-	//cookie操作
-	//读cookie
-	function getCookie(cname){
-	  var name = cname + "=";
-	  var ca = document.cookie.split(';');
-	  for(var i=0; i<ca.length; i++) 
-	  {
-	    var c = ca[i].trim();
-	    if (c.indexOf(name)==0) 
-	    	return c.substring(name.length,c.length);
-	  }
-	  return "";
-	}
-	//设置cookie
-	function setCookie(cname,cvalue,exdays){
-	  var d = new Date();
-	  d.setTime(d.getTime()+(exdays*24*60*60*1000));
-	  var expires = "expires="+d.toGMTString();
-	  document.cookie = cname + "=" + cvalue + "; " + expires;
-	}
-</script>
-    
-    
+	<script type="text/javascript" src="js/webjson.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/base64.js"></script>
-	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>	
+<script type="text/javascript">
+		username = getPar2("username");
+		if(username.length==null){
+
+			window.location.href="index.html?username=2829969554";
+
+		}	
+		 var message_lang;
+		 var blog_id;
+</script>
+<!--开始访问接口-->	
 	<script type="text/javascript">
 
 	//获取博客分类列表
 		var blog_types;
 	if(document.cookie.indexOf("blog_types=") ==-1){
-		 $.get("https://www.anqikeji.xyz/api/index.php?get_blog_type_list",function(data,status){
+		 $.get(webjson+"?get_blog_type_list",function(data,status){
 			//document.write(status);
 			blog_types=data;
 			setCookie("blog_types",JSON.stringify(blog_types),1);
@@ -82,7 +48,7 @@
  	 }	
 
 	//获取个人信息	
-	$.get("https://www.anqikeji.xyz/api/index.php?get_user&username="+getPar("username"),function(data,status){
+	$.get(webjson+"?get_user&username="+getPar("username"),function(data,status){
 		//document.write(status);
     	if(status =="success"){
     	var obj =data;
@@ -94,21 +60,22 @@
     		document.getElementById("footer2").innerHTML=user.name;
     		document.getElementById("title_h1").innerHTML=user.name;
     		document.getElementById("autograph").innerHTML=user.autograph;
-    		document.getElementById("tximg").src="https://www.anqikeji.xyz/img/"+ user.http;
+    		document.getElementById("tximg").src=txmlhttp + user.http;
     		document.getElementById("qq_href").href="tencent://message/?uin="+user.QQ+"&Site=&Menu=yes";
     		document.getElementById("mail_href").href="mailto:"+user.QQ+"@qq.com";
     		document.getElementById("weibo_href").href="https://weibo.com/"+user.QQ;
 
     	}else{
-    		alert("no(get_user1)");
+    		alert("当前用户不存在,即将关闭本网页!");
+    		window.opener=null;
+			window.open('','_self');
+			window.close();
     	}
 
-    	}else{
-    		alert('no(get_user2)');
     	}
  	 });
 	 	 //获取个人博客列表
- 	 	$.get("https://www.anqikeji.xyz/api/index.php?get_body_blog_list&username="+getPar('username'),function(data,status){
+ 	 	$.get(webjson+"?get_body_blog_list&username="+getPar('username'),function(data,status){
 		//document.write(status);
     	if(status =="success"){
     	var b = new Base64();  
@@ -116,7 +83,7 @@
     		var obj =data;
     		var rows = obj["date"];
     		if(!(getPar("index")< obj.lang && getPar("index")>-1)){
-    			window.location.href="../ui/?"+getPar('username');
+    			window.location.href="index.html?username="+getPar('username');
     		}
 
     		var rows2 = rows['s'+getPar('index')];
@@ -130,7 +97,7 @@ blog_id=rows2.id;
 	 //获取某博客评论
 
 
-	 	 	$.get("https://www.anqikeji.xyz/api/index.php?get_blog_message_list&id="+rows2.id,function(data,status){
+	 	 	$.get(webjson+"?get_blog_message_list&id="+rows2.id,function(data,status){
 	 	 		message_lang=data.lang;
 	 	 		message=data["date"];
 	 	 		message2;
@@ -164,16 +131,16 @@ document.getElementById("titles").innerHTML=rows2.title;
 
 if(getPar('index') ==0){
 
-document.getElementById("post-nav").innerHTML="<a class='next' href='show.html?username="+rows["s"+(getPar("index")+1)].username+"&index="+ (getPar('index')+1) +"'>「"+rows["s"+(getPar("index")+1)].title+"」  »</a>";
+document.getElementById("post-nav").innerHTML="<a target='_blank' class='next' href='show.html?username="+rows["s"+(getPar("index")+1)].username+"&index="+ (getPar('index')+1) +"'>「"+rows["s"+(getPar("index")+1)].title+"」  »</a>";
 
  }
 if(getPar('index') ==obj.lang-1){
-document.getElementById("post-nav").innerHTML="<a class='prev' href='show.html?username="+rows['s'+(obj.lang-2)].username+"&index="+(obj.lang-2)+"'>«  「"+rows['s'+(obj.lang-2)].title+"」</a>";
+document.getElementById("post-nav").innerHTML="<a target='_blank' class='prev' href='show.html?username="+rows['s'+(obj.lang-2)].username+"&index="+(obj.lang-2)+"'>«  「"+rows['s'+(obj.lang-2)].title+"」</a>";
 }
 if(getPar('index') !=obj.lang-1  && getPar('index') !=0){
  		
-document.getElementById("post-nav").innerHTML="<a class='prev' href='show.html?username="+rows['s'+(getPar('index')-1)].username+"&index="+(getPar('index')-1)+"'>«  「"+rows['s'+(getPar('index')-1)].title+"」</a>";
-document.getElementById("post-nav").innerHTML+="<a class='next' href='show.html?username="+rows['s'+(getPar('index')+1)].username+"&index="+(getPar('index')+1)+"'>「"+rows['s'+(getPar('index')+1)].title+"」  »</a>";
+document.getElementById("post-nav").innerHTML="<a target='_blank' class='prev' href='show.html?username="+rows['s'+(getPar('index')-1)].username+"&index="+(getPar('index')-1)+"'>«  「"+rows['s'+(getPar('index')-1)].title+"」</a>";
+document.getElementById("post-nav").innerHTML+="<a target='_blank' class='next' href='show.html?username="+rows['s'+(getPar('index')+1)].username+"&index="+(getPar('index')+1)+"'>「"+rows['s'+(getPar('index')+1)].title+"」  »</a>";
  }   		
 //alert(1);
     	}else{
@@ -187,8 +154,8 @@ document.getElementById("post-nav").innerHTML+="<a class='next' href='show.html?
 function tomessage(){
 	if(document.getElementById("comname").value.length >0 && document.getElementById("comment").value.length >0 ){
 		message_lang=message_lang+1;
-		
-		$.get("https://www.anqikeji.xyz/api/index.php?new_message&id="+blog_id+"&name="+document.getElementById("comname").value+"&message="+document.getElementById("comment").value,function(data,status){
+		//发布评论
+		$.get(webjson+"?new_message&id="+blog_id+"&name="+document.getElementById("comname").value+"&message="+document.getElementById("comment").value,function(data,status){
 			if (status=="success" && data.lang ==1) {
 				document.getElementById("pinglunqu").innerHTML+="<fieldset> <legend>"+message_lang+"楼&nbsp&nbsp"+data.time+"</legend><p><b>&nbsp;"+data.name+"</b>:<br/><font>&nbsp;&nbsp&nbsp;&nbsp;"+data.message+"</font></p></fieldset>";
 		document.getElementById("comment").value="";
@@ -200,7 +167,11 @@ function tomessage(){
 		
 	}
 }
- 	 </script>		
+ 	 </script>	
+</head>
+<body>
+
+   	
 <header>
 <div class="main">
 	<div class="intro">
@@ -230,7 +201,7 @@ function tomessage(){
 		<i class="iconfont icon-menu"></i>
 	</div>
 	<ul class="bar">
-					<li><a id="shouye" href="">首页</a></li>
+					<li><a id="shouye" target='_blank'  href="">首页</a></li>
 		</ul>
 	</nav>
 </div>
@@ -293,7 +264,7 @@ function tomessage(){
 	</content>
 	<footer>
 		&nbsp;&nbsp;&nbsp;&nbsp;14.41ms<br>
-		© 2015-至今 <a id="footer" href="#"></a> <i class="iconfont icon-icp"></i><br>Powered by <a id="footer2" href="#"</a>
+		© 2015-至今 <a id="footer" href="#"></a> <i class="iconfont icon-icp"></i><br>Powered by <a id="footer2" href="#"></a>
 	</footer>
 	<div class="toTop">TOP</div>
 <script src="js/jquery.min.js"></script>
@@ -306,6 +277,6 @@ function tomessage(){
 <script data-no-instant>InstantClick.init();</script>
 </body>
 <script type="text/javascript">
-	document.getElementById("shouye").href="../ui/index.html?username="+getPar("username");
+	document.getElementById("shouye").href="index.html?username="+getPar2("username");
 </script>
 </html>
