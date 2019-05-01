@@ -15,11 +15,22 @@
 
 访问地址规则:"https://2829969554.github.io/blog/index.html?username=" +源站的博客账号
 
+访问地址规则:"https://h5.anqikeji.xyz/index.html?username=" +源站的博客账号
+
+访问地址规则:"https://qnmwdc.coding.io/index.html?username=" +源站的博客账号
+
+访问地址规则:"https://www.anqikeji.xyz/blog/api/ui/index.html?username=" +源站的博客账号
+
+默认是跳转本作者自己的博客********默认是跳转本作者自己的博客************默认是跳转本作者自己的博客
+
 测试地址1:https://2829969554.github.io/blog/index.html?username=2829969554
 
 测试地址2:https://2829969554.github.io/blog/index.html?username=2547130379
 
 测试地址3:https://2829969554.github.io/blog/index.html?username=210654020
+.........
+
+........
 
 接口环境:php+sqlite,
 
