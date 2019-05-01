@@ -9,6 +9,10 @@
 
 类型:个人博客
 
+接口配置在:/js/webjson.js
+
+接口例子源码在:/Interface/
+
 访问地址规则:"https://2829969554.github.io/blog/index.html?username=" +源站的博客账号
 
 测试地址1:https://2829969554.github.io/blog/index.html?username=2829969554
