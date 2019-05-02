@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
+
+<html>
+<head>
+	<!--开始 -->
+	<script>
+		function getcr(a){
+			var src =document.getElementById('img'+a).src;
+			document.getElementById('content').value+='<img src="'+src+'"></img>';
+		}
+		function echos(){
+			var text =document.getElementById('content').value;
+			document.getElementById('ttt').innerHTML+=text+"<br/>";
+			document.getElementById('content').value="";
+		}
+	</script>
+	 <script type="text/javascript">
+        $(function(){
+        })
+        function openDialog(){
+            document.getElementById('light').style.display='block';
+            document.getElementById('fade').style.display='block'
+        }
+        function closeDialog(){
+            document.getElementById('light').style.display='none';
+            document.getElementById('fade').style.display='none'
+        }
+    </script>
+	        <style> 
+        .black_overlay{ 
+            display: none; 
+            position: absolute; 
+            top: 0%; 
+            left: 0%; 
+            width: 100%; 
+            height: 100%; 
+            background-color: black; 
+            z-index:1001; 
+            -moz-opacity: 0.8; 
+            opacity:.80; 
+            filter: alpha(opacity=88); 
+        } 
+        .white_content { 
+            display: none; 
+            position: absolute; 
+            top: 15; 
+            left: 15%; 
+            width: 60%; 
+            height: 40%; 
+            padding: 10px; 
+            border: 10px solid orange; 
+            background-color: white; 
+            z-index:1002; 
+            overflow: auto; 
+        } 
+    </style> 
+ <!--结束 -->   
+</head>
+<body >
+<!--开始 -->
+        <p><a href = "JavaScript:void(0)" onclick = "openDialog()">表情</a></p> 
+        <div  id="light" class="white_content">
+        	<div style="text-align: right;">
+        	<a href = "javascript:void(0)" onclick = "closeDialog()">关闭</a>
+        	</div>
+	        <script>
+				for(var i=1;i<=108;i++){
+					document.write("<a href = 'javascript:void(0)' onclick='getcr("+i+");closeDialog()'><img id='img"+i+"' src='./face/bq ("+i+").gif'></img></a>");
+				}
+			</script>
+            
+        </div> 
+        <div id="fade" class="black_overlay"></div> 
+ <!--结束 -->    
+<textarea style="width:98%;" rows="15" id="content" ></textarea>
+<br/>
+<div style="text-align: right;">
+<BUTTON  onclick="echos();">发送</BUTTON>
+</div>
+<p id="ttt"></p>
+      
+    </body> 
+
+</html>
