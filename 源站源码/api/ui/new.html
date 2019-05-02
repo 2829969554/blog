@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<title id="titles"></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
+	<meta name="msapplication-TileColor" content="#3ac19f"/>
+	<!-- 请将站点icon和图表放到站点根目录 -->
+	<link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+	<meta name="msapplication-TileImage" content="favicon.ico"/>
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/iconfont.css">
+<!--申明富文本-->
+
+	<link media="all" rel="stylesheet" type="text/css" href="css/simditor.css" />
+
+	<script type="text/javascript" src="js/webjson.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/base64.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="js/mobilecheck.js"></script>
+<script type="text/javascript">
+		username = getPar2("username");
+		if(username.length==null){
+
+			window.location.href="index.html?username=2829969554";
+
+		}	
+		 var message_lang;
+		 var blog_id;
+</script>
+
+    <script type="text/javascript">
+        if(mobilecheck()){
+            $('<link/>', {
+                media: 'all',
+                rel: 'stylesheet',
+                type: 'text/css',
+                href: 'css/mobile.css'
+            }).appendTo('head')
+        }
+    </script>
+
+<script type="text/javascript">
+	var blog_types;
+	var message_lang;
+	var blog_id;
+	var obj;
+
+	//获取博客分类列表
+		
+	if(document.cookie.indexOf("blog_types=") ==-1){
+		 $.get(webjson+"?get_blog_type_list",function(data,status){
+			//document.write(status);
+			blog_types=data;
+			setCookie("blog_types",JSON.stringify(blog_types),1);
+			if(status !="success"){
+	    		alert('no(blog_types)');
+	    	}
+	    		    	
+	 	 });
+ 	 }else{
+
+ 	 	blog_types=JSON.parse(getCookie("blog_types"));
+ 	 }	
+
+	//获取个人信息	
+	$.get(webjson+"?get_user&username="+username,function(data,status){
+		//document.write(status);
+    	if(status =="success"){
+    	 obj =data;
+    	if(obj.lang==1){
+    		var user=obj["date"];
+    		
+    		
+    		document.getElementById("footer").innerHTML=user.name;
+    		document.getElementById("footer2").innerHTML=user.name;
+    		document.getElementById("title_h1").innerHTML=user.name;
+    		document.getElementById("autograph").innerHTML=user.autograph;
+    		document.getElementById("tximg").src=txmlhttp + user.http;
+    		document.getElementById("qq_href").href="tencent://message/?uin="+user.QQ+"&Site=&Menu=yes";
+    		document.getElementById("mail_href").href="mailto:"+user.QQ+"@qq.com";
+    		document.getElementById("weibo_href").href="https://weibo.com/"+user.QQ;
+
+    	}else{
+    		alert("当前用户不存在,即将关闭本网页!");
+    		window.opener=null;
+			window.open('','_self');
+			window.close();
+    	}
+
+    	}
+ 	 });
+	
+// 提交文章
+
+function newblog(){
+	if(prompt("请输入发布者密码:")==obj.date.password){
+
+		$.post(webjson+"?new_blog",
+		  {
+		    "username":decodeURIComponent(username),
+		    "title":document.getElementById("comname").value,
+		    "content":document.getElementById("comment").value,
+		    "type":document.getElementById("typelist").value
+		  },
+		  function(data,status){
+		    if(status == "success"  && data.type =="yes"){
+		    	window.location.href="index.html?username="+username;
+		    }else{
+		    	alert("发布失败");
+		    }
+		  });
+	
+	}else{
+		alert("发布者密码错误!");
+	}
+}	
+</script>
+</head>
+<body>
+
+<header>
+<div class="main">
+	<div class="intro">
+		<!-- 调用后台上传的头像，请到后台上传 -->
+		<img src="" id="tximg" class="intro-logo"/>
+		<span class="intro-sitename"><a id ="title_h1" href="#"></a></span>
+		<span class="intro-siteinfo" id="autograph"></span>
+		<span class="social">
+		<!-- 
+			联系方式中不需要的链接可直接删除
+		-->
+		<!-- 调用QQ链接，请到 http://shang.qq.com/ 申请-->
+		<a id="qq_href" href="#" target="_blank"><i class="iconfont icon-qq"></i></a>
+		<!-- 邮箱链接，格式:mailto:mail@mail.com -->
+		<a id="mail_href" href="#" target="_blank"><i class="iconfont icon-mail"></i></a>
+		<!-- 微博链接,格式:https://www.weibo.com/weiboid -->
+		<a id="weibo_href" href="#" target="_blank"><i class="iconfont icon-weibo"></i></a>
+		<!-- GitHub链接，格式:https://www.github.com/yourid -->
+		<a  target="_blank"><i class="iconfont icon-github"></i></a>
+		<!-- Coding链接，格式:https://coding.net/u/yourid -->
+		<a  target="_blank"><i class="iconfont icon-coding"></i></a>
+		</span>
+	</div>
+
+	<nav>
+	<div class="collapse">
+		<i class="iconfont icon-menu"></i>
+	</div>
+	<ul class="bar">
+					<li><a id="shouye" target='_blank'  href="">首页</a></li>
+		</ul>
+	</nav>
+</div>
+</header><!-- 文章内容开始 -->
+<content>
+<div class="main">
+<div id="blog_title">	
+</div>
+<div class="article-content" id="blog_content">
+		
+</div>
+		<div class="post-footer">
+			<div class="post-tags">
+
+							</div>
+			
+
+
+			<div class="post-nav" >
+			</div>
+
+
+
+	</div>
+		    <div id="pagenavi">
+	        </div>
+		<div id="comment-place">
+<div class="comment-post" id="comment-post">
+
+		<p class="comment-header"><b>发表文章：</b><a name="respond"></a></p>
+		<input type="text" id="comname" maxlength="49" value="" size="22" tabindex="1">
+		<label for="author"><small>标题</small></label>
+		<br>
+<select id="typelist">
+<!--  <option value="volvo">Volvo</option> -->
+
+</select>
+<label for="author"><small>文章类型</small></label>
+<div class="wrapper">
+
+
+
+<section id="page-demo">
+		<p ><textarea name="comment" id="comment" rows="9" tabindex="6"></textarea></p>
+</section>
+
+
+    
+	<script type="text/javascript" src="js/module.js"></script>
+	<script type="text/javascript" src="js/uploader.js"></script>
+	<script type="text/javascript" src="js/hotkeys.js"></script>
+	<script type="text/javascript" src="js/simditor.js"></script>
+	<script type="text/javascript" src="js/page-demo.js"></script>
+
+
+
+</div>
+
+			<p style="text-align: center;">
+				<input type="button" id="comment_submit" onclick="newblog();" value="正式发布" tabindex="6" />
+			</p>
+
+</div>
+	</div>
+					<div class="post-nav" id="post-nav">
+				
+				
+		</div>
+	</div>
+
+</content>
+<div class="toc"></div>
+				</div>
+	</content>
+	<footer>
+		&nbsp;&nbsp;&nbsp;&nbsp;14.41ms<br>
+		© 2015-至今 <a id="footer" href="#"></a> <i class="iconfont icon-icp"></i><br>Powered by <a id="footer2" href="#"></a>
+	</footer>
+	<div class="toTop">TOP</div>
+
+<!-- 一言调用（副标题），不需要可以删除下面一行 -->
+<script src="js/scrolltop.js"></script>
+<script src="js/collapse.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/instantclick.min.js" data-no-instant></script>
+<!-- Instantclick -->
+<script data-no-instant>InstantClick.init();</script>
+</body>
+<script type="text/javascript">
+	document.getElementById("shouye").href="index.html?username="+username;
+	var blog_types_date=blog_types["date"];
+	var tmp1;
+	//循环导入文章分类列表
+	for (var iy = 0; iy < blog_types.lang;iy++) {
+		tmp1=blog_types_date['s'+iy];
+		document.getElementById("typelist").innerHTML+="<option value='"+tmp1.id+"'>"+tmp1.type+"</option>";
+	}
+	//window.location.replace(window.location.href);
+</script>
+
+</html>

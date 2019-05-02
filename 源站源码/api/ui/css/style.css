@@ -1,0 +1,647 @@
+/*
+
+	Template Name:Life
+	Description:极简主义者
+	Version:1.1
+	Author:Secret
+	Author Url:http://blog.myiooc.cn
+	Sidebar Amount:0
+
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	color: #555;
+	font-size: 16px;
+	font-family: "Microsoft Jhenghei","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+	line-height: 1.8;
+}
+
+a,u {
+	position: relative;
+	display: inline-block;
+	color: #3ac19f;
+	text-decoration: none;
+	word-break: break-all;
+}
+
+a:hover {
+	-webkit-animation: links .1s 3;
+}
+
+ol li {
+	list-style: decimal;
+}
+
+ul li {
+	list-style-type: square;
+}
+
+div {
+	display: block;
+}
+
+input,textarea{
+	outline: none;
+}
+
+::selection {
+	background: #262a30;
+	color: #fff;
+}
+
+.main {
+	margin: 0 auto;
+	padding-top: 40px;
+	width: 700px;
+}
+
+/*
+	顶部样式
+*/
+
+header {
+	width: 100%;
+	background: #3ac19f;
+}
+
+.intro {
+	padding: 10px 0 10px 0;
+	width: 100%;
+	text-align: center;
+	transition: all .5s;
+	-webkit-animation: nav-down .5s;
+	animation: nav-down .5s;
+}
+
+.intro:hover .intro-logo {
+	transform: rotate(360deg);
+}
+
+.intro:hover .social a {
+	-webkit-animation: none;
+	transform: rotate(360deg);
+}
+
+.intro-logo {
+	display: block;
+	margin: 0 auto;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	transition: all 1.8s;
+}
+
+.intro-sitename {
+	display: block;
+	font-weight: 400;
+	font-size: 35px;
+}
+
+.intro-sitename a {
+	color: #fff;
+}
+
+.intro-siteinfo {
+	display: block;
+	color: #fff;
+	font-size: 16px;
+	opacity: 1;
+}
+
+.social {
+	display: block;
+	text-align: center;
+}
+
+.social a{
+	margin: 0 10px;
+	color: #fff;
+	transition: all 1.8s;
+}
+
+.social a i {
+	font-size: 24px;
+}
+
+/*
+	文章样式
+*/
+
+.article {
+	padding: 20px 0;
+	-webkit-animation: article-up .8s;
+	animation: article-up .8s;
+}
+
+.article-title {
+	text-align: center;
+	font-weight: 700;
+	font-size: 26px;
+}
+
+.article-title a {
+	color: #555;
+}
+
+.article-time {
+	display: block;
+	color: #999;
+	text-align: center;
+	font-size: 12px;
+}
+
+.article-content {
+	margin-top: 20px;
+}
+
+.article-content img {
+	clear: both;
+	display: block;
+	margin: 20px auto;
+	max-width: 100%;
+	max-height: 420px;
+}
+
+.article-content ol,.article-content ul {
+	padding-left: 30px;
+	border-left: 2px solid #3ac19f;
+}
+
+.article-content pre {
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 1.42857143;
+	color: #333;
+	word-break: break-all;
+	word-wrap: break-word;
+	background-color: #efefef;
+	border: 1px solid #ccc;
+	overflow: auto;
+	font-family: "Microsoft Jhenghei","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+
+.article-content h1,.article-content h2,.article-content h3,.article-content h4,.article-content h5,.article-content h6{
+	border-left: 5px solid #3ac19f;
+	padding-left: 10px;
+	background: #efefef;
+	margin: 10px 0;
+}
+
+.article-content a:before{
+	font-family:"iconfont" !important;
+	content: "\e80f";
+	font-size:12px;
+	color: #999;
+}
+
+.readmore {
+	margin: 50px 0 60px 0;
+	text-align: center;
+}
+
+.readmore a:before{
+	content: "";
+}
+
+.readmore a {
+	padding: 0 10px;
+	color: #3ac19f;
+	transition: all .5s;
+}
+
+.readmore a:hover {
+	background: #3ac19f;
+	color: #fff;
+}
+
+.post-tags {
+	margin-top: 16px;
+	text-align: center;
+}
+
+.post-tags .tag {
+	margin: 0 10px;
+}
+
+.pagination,.post-nav {
+	display: inline-block;
+    width: 100%;
+	margin-top: 20px;
+	border-top: 1px solid #eee;
+	text-align: center;
+}
+
+.pagination a,.pagination span {
+	position: relative;
+	display: inline-block;
+	margin: 0 10px;
+	padding: 0 10px;
+	line-height: 30px;
+}
+
+.pagination span {
+	background: #eee;
+}
+
+.pagination a:hover {
+	margin-top: -1px;
+	border-top: 1px solid #555;
+}
+
+.post-nav .prev {
+	float: left;
+}
+
+.post-nav .next {
+	float: right;
+}
+
+.post-nav .next:hover,.post-nav .prev:hover {
+	margin-top: -1px;
+	border-top: 1px solid #555;
+}
+
+/*
+	评论框样式
+*/
+
+.comment-header {
+	margin: 0 0px 5px 0px
+}
+
+.comment-post {
+	clear: both
+}
+
+.comment-post p {
+	margin: 5px 0px
+}
+
+.comment-post .cancel-reply {
+	float: right;
+	font-size: 12px;
+	cursor: pointer;
+	_cursor: hand;
+	padding-right: 10%
+}
+
+.comment-post .cancel-reply:hover {
+	text-decoration: underline
+}
+
+.comment-post small {
+	font-size: 12px;
+	color: #999
+}
+
+.comment-post input {
+	padding: 5px 5px;
+	border: 1px #b6b6b6 solid;
+	font-size: 12px;
+	color: #333;
+	width: 40%
+}
+
+.comment-post #comment {
+	width: 90%;
+	border: 1px #b6b6b6 solid;
+	font-size: 12px;
+	color: #333
+}
+
+.comment-post #comment_submit {
+	background: #3ac19f;
+	border: 0;
+	color: #fff;
+	width: 111px;
+	height: 29px;
+	text-align: center;
+	cursor: pointer;
+	_cursor: hand;
+}
+
+.comment-post #comment_submit:hover {
+	-webkit-animation: links .1s 3;
+}
+
+.comment-post .input {
+	width: 100px
+}
+
+.comment {
+	margin: 10px 0;
+	padding: 10px 0px;
+	font-size: 12px;
+	border-bottom: 1px #f7f7f7  solid;
+	overflow: hidden;
+	color: #333;
+	height: 100%;
+	zoom: 1
+}
+
+.comment span {
+	color: #ff7a15;
+}
+
+.comment .comment-time {
+	color: #999999;
+	display: inline;
+	font-size: 10px;
+}
+
+.comment .avatar {
+	float: left;
+	margin: 5px
+}
+
+.comment .avatar img{
+	border-radius: 50%;
+}
+
+.comment .comment-info {
+	float: left;
+	width: 90%
+}
+
+.comment .comment-content {
+	margin: 8px 0px 0px 0px;
+}
+
+.comment .comment-reply {
+	float: right;
+	font-size: 12px;
+	cursor: pointer;
+	_cursor: hand;
+}
+
+.comment .comment-reply:hover {
+	text-decoration: underline
+}
+
+.comment-children {
+	width: 95%;
+	margin: auto;
+	clear: both;
+	border: none;
+	padding: 0
+}
+
+.comment .comment-post {
+	width: 90%;
+	margin: 15px auto
+}
+
+/*
+	底部样式
+*/
+
+footer {
+	margin: 20px auto;
+	color: #999;
+	text-align: center;
+}
+
+
+/*
+	媒体查询 CSS改变规则 MaxWidth-767
+*/
+
+@media (max-width:767px) {
+	.main {
+		padding: 40px 20px 0 20px;
+		width: auto;
+	}
+
+	header .main .intro .intro-logo {
+		width: 100px;
+		height: 100px;
+	}
+
+	header .main .intro .intro-sitename {
+		font-size: 32px;
+	}
+
+	content .article {
+		padding: 20px 0;
+	}
+
+	.article-content .readmore {
+		margin-top: 20px;
+		margin-bottom: 0;
+	}
+
+	footer {
+		font-size: 14px;
+	}
+
+	.visib-768 {
+		display: none;
+	}
+
+	body {
+		position: relative;
+	}
+
+	nav {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+	}
+
+	nav .collapse {
+		position: relative;
+		display: block;
+		width: 32px;
+		height: 32px;
+		line-height: 32px;
+		text-align: center;
+		cursor: pointer;
+		-webkit-animation: nav-down .5s;
+		animation: nav-down .5s;
+	}
+
+	nav .collapse i {
+		color: #fff;
+		font-size: 32px;
+		transition: all .3s;	
+	}
+
+	nav ul {
+		display: none;
+		width: 120px;
+		background: #fff;
+		-webkit-animation: show .3s;
+		animation: show .3s;
+	}
+
+	nav ul {
+		margin: 10px 0 0 20px;
+		padding: 0;
+		text-align: center;
+	}
+
+	nav ul li {
+		float: none;
+		width: 100%;
+		list-style: none;
+		line-height: 36px;
+		cursor: pointer;
+	}
+
+	nav ul li:hover {
+		background: #262a30;
+		color: #fff;
+	}
+
+	nav ul li a {
+		display: block;
+		color: #3ac19f;
+	}
+
+	nav ul li a:hover {
+		color: #fff;
+	}
+
+	.pagination a,.pagination span {
+		margin: 0 5px;
+	}
+
+	.post-nav .next,.post-nav .prev {
+		float: none;
+	}
+
+	.post-nav .next:hover,.post-nav .prev:hover,.pagination a:hover{
+		margin-top: 0;
+		border: none;
+	}
+}
+
+/*
+	媒体查询 CSS改变规则 MinWidth-768
+*/
+
+@media screen and (min-width:768px) {
+	nav .collapse {
+		display: none;
+	}
+
+	nav {
+		padding-bottom: 12px;
+		text-align: center;
+		transition: all .5s;
+		-webkit-animation: nav-down .5s;
+		animation: nav-down .5s;
+	}
+
+	nav ul {
+		display: inline-block;
+		text-align: center;
+	}
+
+	nav ul li {
+		float: left;
+		margin: 0 auto;
+		width: 120px;
+		list-style: none;
+	}
+
+	nav ul li a {
+		color: #fff;
+	}
+}
+
+/*
+	动画库
+*/
+
+@-webkit-keyframes links {
+	0% {
+		-webkit-transform: rotate(-2deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(2deg);
+	}
+}
+
+@-webkit-keyframes nav-down {
+	0% {
+		opacity: 0;
+		transform: scale(1) translateY(-10em);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+@-webkit-keyframes article-up {
+	0% {
+		opacity: 0;
+		transform: scale(1) translateY(10em);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+@-webkit-keyframes show {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+
+	70% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@-webkit-keyframes totop {
+	0% {
+		opacity: 0;
+		transform: translateX(10em);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/*
+	返回顶部CSS样式
+*/
+
+.toTop {
+	z-index: 1000;
+	position: fixed;
+	right: 1.2em;
+	bottom: 2.2em;
+	display: none;
+	width: 36px;
+	height: 36px;
+	background: #3ac19f;
+	color: #fff;
+	text-align: center;
+	line-height: 36px;
+	font-size: 14px;
+	cursor: pointer;
+	transition: all .3s;
+	-webkit-animation: totop .8s;
+	animation: totop .8s;
+}
