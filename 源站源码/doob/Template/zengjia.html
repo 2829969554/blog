@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="referrer" content="origin" />
+<link type="text/css" rel="stylesheet" href="./css/blog-common.css"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="./css/bundle-SimpleMemory.css"/>
+<link type="text/css" rel="stylesheet" href="./css/421388.css"/>
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./css/bundle-SimpleMemory-mobile.css"/>
+
+<script src="./js/jquery-2.2.0.min.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: { 
+            equationNumbers: { autoNumber: ['AMS'], useLabelIds: true }, extensions: ['extpfeil.js'] 
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script><script src="./js/MathJax.js"></script>
+<script src="./js/blog-common.js" type="text/javascript"></script>
+<title>添加新闻</title>
+</head>
+<div id="home">
+<body>
+	
+	<div style="text-align:center;" id="blogTitle">		
+		<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="#">添加新闻</a></h1>
+	</div><!--end: blogTitle 标题和副标题 -->
+	
+	<form name="name3" method="post" action="">
+
+	<div style="text-align: center;">
+	    标题:<input size="60" type="text" value="" name="title" id="title"></input>	    
+	    <br/>
+	    <br/>
+	    请在下方输入新闻内容<br/>
+	    <textarea rows="30" cols="120px" type="text" name="content" id="content"></textarea>
+	    <br/>
+	   	<input class="submit_1" type="submit" value="增加" name="button" id="button"></input>
+	   	<input class="submit_1" type="button" value="返回" name="" id="" onclick="location.href='admin.php'"></input>
+   	</div>
+</form>
+</body>
+</div>
+</html>

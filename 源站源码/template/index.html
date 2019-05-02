@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="referrer" content="origin" />
+<title>首页</title>
+
+ <link rel="stylesheet" href="highlight/styles/vs.css">
+ <script src="highlight/highlight.pack.js"></script>
+ <script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<!--
+显示行号的插件
+-->
+<script src="highlight/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+
+
+
+
+<link type="text/css" rel="stylesheet" href="./css/blog-common.css"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="./css/bundle-SimpleMemory.css"/>
+<link type="text/css" rel="stylesheet" href="./css/421388.css"/>
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./css/bundle-SimpleMemory-mobile.css"/>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<script src="./js/jquery-2.2.0.min.js"></script>
+<style type="text/css">
+.cbp_tmlabel h2 { margin-top: 0px; padding: 0 0 10px 0; font-size: 16px; text-shadow: rgba(7, 84, 152, 0.71) 1px 1px 1px; }
+.cbp_tmlabel:after { right: 100%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-right-color: #3594cb; border-width: 10px; top: 10px; }
+.cbp_tmlabel:after { border-right-color: #579dc5; }
+.cbp_tmicon { width: 10px; height: 10px; font-family: "ecoico"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; font-size: 1.4em; line-height: 40px; -webkit-font-smoothing: antialiased; position: absolute; color: #fff; background: #46a4da; border-radius: 50%; box-shadow: 0 0 0 3px #afdcf8; text-align: center; left: 170px; top: 15px; margin: 0 0 0 -25px; }
+.blogpic { width: 90px; height:90px; overflow: hidden; display: block; float: left; margin-right: 20px; }
+.blogpic img { width: 100%; height: auto; margin: auto; }
+a.readmore { background: #4CAF50; color: #fff; padding: 5px 10px; float: right; margin: 20px 0 0 0; border-radius: 5px; }
+
+
+</style>
+
+
+
+<script src="./js/blog-common.js" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div  id="blogTitle">		
+		<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="#">魔帝本尊</a></h1><!--落墨幽微-->
+		<h2>行到水穷处 坐看云起时</h2>
+		<!--功不成，身已退。-->
+		<!--https://www.cnblogs.com/wkfvawl/-->
+	</div><!--end: blogTitle 标题和副标题 -->
+	<div id="navigator">
+		
+	<ul id="navList">
+<!--T-->
+<style type="text/css">
+
+
+    
+    
+    /* -------------菜单css代码----------begin---------- */
+
+    
+    /* 去掉a标签的下划线 */
+    .menuDiv a {
+        text-decoration: none;
+    }
+    
+    /* 设置ul和li的样式 */
+    .menuDiv ul , .menuDiv li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        float: left;
+    } 
+    
+    /* 设置二级菜单绝对定位，并隐藏 */
+    .menuDiv > ul > li > ul {
+        position: absolute;
+        display: none;
+    }
+
+    /* 设置二级菜单的li的样式 */
+    .menuDiv > ul > li > ul > li {
+        float: none;
+    }
+  
+    /* 鼠标放在一级菜单上，显示二级菜单 */
+    .menuDiv > ul > li:hover ul {
+        display: block;
+    }
+
+
+
+    /* 二级菜单 */
+    .menuDiv > ul > li > ul > li > a {
+        width: 120px;
+        line-height: 5px;
+        color: #456;
+        background-color: rgba(255,255,255,0.9);
+        text-align: center;
+        border: 1px solid #ccc;
+        border-top: none;
+        display: block;
+    }
+    
+
+    /* 在二级菜单中，鼠标放上去的样式 */
+    .menuDiv > ul > li > ul > li > a:hover {
+        color: #a4f;
+        background-color: #cdf;
+    }
+    /* -------------菜单css代码----------end---------- */
+    
+    </style>
+	    <!-- -------菜单html代码---------begin------- -->
+    <div class="menuDiv">
+        <ul>
+            <li>
+                <a id="blog_nav_sitehome" class="menu"  href="index.php" >首页</a>
+            </li> 
+            <li>
+                <a id="blog_nav_newpost" class="menu" rel="nofollow" href="index.php?no=&type=6">新随笔</a>
+                
+            </li> 
+            <li>
+                <a id="blog_nav_myhome" class="menu" >分类</a>
+                <ul>
+                     <br/>
+                     <br/>
+                     <br/>
+                     <?php
+                     for($i=0;$i<sizeof($blog_list);$i++){
+                    echo '<li><a href="index.php?no=&type='.$i.'">'.$blog_list[$i].'</a></li>
+                    
+                      <br/>';
+                      }
+                    ?>
+                </ul>
+            </li> 
+            <li>
+                <a id="blog_nav_contact" class="menu" rel="nofollow" href="#">关于</a>
+            </li> 
+            <li>
+                <a id="blog_nav_admin" class="menu" target="_blank" rel="nofollow" href="admin.php">管理</a>
+            </li> 
+        </ul>
+    </div>
+    <!-- -------菜单html代码---------end------- -->  
+    <!--
+	<li><a id="blog_nav_sitehome" class="menu" href="index.php">首页</a></li>
+	<li><a id="blog_nav_myhome" class="menu" href="index.php?no=">列表</a></li>
+	<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="#">新随笔</a></li>
+	<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="#">关于</a></li>
+	<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="admin.php">管理</a></li>
+	-->
+	</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+				<!--span id="stats_post_count">访问量 - 329&nbsp; </span-->
+				<span id="stats_article_count"> 文章 - <?php	echo sizeof($id_list);	?>&nbsp; </span>
+				
+			</div>
+			
+		</div>
+	</div><!--end: navigator 导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+<?php
+		$list=sizeof($id_list)-1;
+
+		if(is_array($_GET)&&count($_GET)>0)//判断是否有Get参数 
+		{ 
+			if(isset($_GET["list"]))//判断所需要的参数是否存在，isset用来检测变量是否设置，返回true or false 
+			{ 
+				$list=$_GET["list"];//存在 
+			}
+		}else{
+
+			    echo '
+			    <script type="text/javascript">
+                　window.location.href="index.php?list='.$list.'";
+　　            </script>
+			    ';
+			}
+			
+		if($list > sizeof($id_list)-1  ||  $list < 0){
+		    echo "<h1 id='Header1_HeaderTitle' class='headermaintitle' style='text-align:center'>当前文章不存在!</h1> </div>";
+		}else{
+      
+
+                    //判断是否查分类
+    	        	if(!isset($_GET["no"])){
+                        //不是分类
+
+                 //判断是否被封号
+    	              if(isok_user($username_list[$list])=='假'){
+                      //没有封号
+                		echo '<h1 class = "postTitle">';
+                		echo '<a id="cb_post_title_url" class="postTitle2" href="#">'.$title_list[$list].'</a>';
+                		echo '</h1>';
+                		echo '
+                		<br/>
+                		
+                		<div class="clear"></div>
+                		<div class="postBody">
+            <hr>
+                		<div id="cnblogs_post_body" class="blogpost-body">';
+                		$pizza = $content_list[$list];
+                	//	$pieces = explode("\n", $pizza);
+                		//foreach($pieces as $val){
+                 		//	echo "<p>".$val."</p>";
+                		//}
+                		echo $pizza;
+                					echo '<p>&nbsp;</p></div>
+                		<div id="MySignature"></div>
+                		<div  class="clear">
+                		</div>
+                		<script type="text/javascript">
+                			function pinglunzanx(){
+	                			var pinglunzan = document.getElementById("pinglunzan");
+	                			pinglunzan.submit();
+                			}
+                		</script>
+                		<div style="text-align: right;">
+                			<form id= "pinglunzan" method="POST">
+                				<input type="hidden" style="border:0px;background:none;" name="id" value="'.$_GET['list'].'"></input>
+                				<input type="hidden" name="pinglunzan" value="">
+                				
+                        <div></div>
+             
+
+                				
+                				';
+                				if(isset($_SESSION['user'])){
+                				//登陆显示
+                			if(isok_pinglunzan($_SESSION['user'],$id_list[$_GET['list']])=="真"){
+                			echo '<a href="#" onclick="javascript:pinglunzanx();"><img src="img/nokong.png" width="30" height="30"></a>';
+                			}else{
+						echo '<a href="#" onclick="javascript:pinglunzanx();"><img src="img/kong.png" width="30" height="30"></a>';
+                			}
+                		}else{
+                		//没有登陆显示
+                		echo '<a href="#" onclick="javascript:pinglunzanx();"><img src="img/kong.png" width="30" height="30"></a>';
+                	}
+                			echo '
+                			</form>
+                		</div>
+                		<hr>
+                		<h>发布者:<b><font color="#333333">'.getname_user($username_list[$list]).'</font></b> 浏览量:<b>'.$veiws_list[$list].'</b>  点赞量:<b>'.$good_list[$_GET["list"]].'</b> 类型:<b>'.$blog_list[$type_list[$list]].' </b>时间:<b>'.$time_list[$list].'</b></h3>
+       
+                		</div>
+                	</div>';
+                	}else{
+                    //被封号
+                		echo '<h1 class = "postTitle">';
+                		echo '<a id="cb_post_title_url" class="postTitle2" href="#">'.$title_list[$list].'</a>';
+                		echo '</h1>';
+                		echo '
+                		<br />
+                		
+                		<div class="clear"></div>
+                		<div class="postBody">
+                <hr>
+                		<div id="cnblogs_post_body" class="blogpost-body">
+                		<h1><img width="50" height="50" alt="Image" src="https://www.anqikeji.xyz/img/fh.jpg"><font color="#e33737">该用户涉嫌违规,已被封停使用!</font><br></h1>
+                		
+                		';
+      
+                					echo '<p>&nbsp;</p></div>
+                		<div id="MySignature"></div>
+                		<div class="clear"></div>
+                		<hr><h>发布者:<b><font color="#333333">'.getname_user($username_list[$list]).'</font></b> 浏览量:<b>'.$veiws_list[$list].'</b> 类型:<b>'.$blog_list[$type_list[$list]].' </b>时间:<b>'.$time_list[$list].'</b></h3>
+                		
+                		</div>
+                	</div>';
+                	}
+                	echo '<br/><br/>';
+                     //显示上下页面
+                   if($_GET['list']==0){
+                   echo '<a style="float:left;font-size:12px;" href="#">没有上一篇了</a>
+
+                       <a style="float:right;font-size:12px;" href="index.php?list='.($_GET['list']+1).'">下一篇:<br/>'.$title_list[$_GET['list']+1].'</a>';
+                    }else{
+                   
+                   if($_GET['list']==sizeof($title_list)-1){
+                       echo '<a style="float:left;font-size:12px;" href="index.php?list='.($_GET['list']-1).'">上一篇:<br/>'.$title_list[$_GET['list']-1].'</a>
+                       <a style="float:right;font-size:12px;" href="#">没有下一篇了</a>';
+                    }else{
+                        echo '
+                        
+                        
+                            <a style="float:left;font-size:12px;" href="index.php?list='.($_GET['list']-1).'">上一篇:<br/>'.$title_list[$_GET["list"]-1].'</a>
+                    
+                        
+                            <a style="float:right;font-size:12px;" href="
+                            index.php?list='.($_GET["list"]+1).'">
+                            下一篇:<br/>'.$title_list[$_GET["list"]+1].'</a>
+                        
+
+                       
+                        ';
+                         }
+                    }   
+                 echo '<br/><br/><hr>';
+
+                //评论区显示
+                if(sizeof($message_username_list)==0){
+                    //没有评论
+    	            echo'
+    	             <br/>
+    	          <br/>
+    	          <h1>评论区</h1>
+    	            <blockquote><h1><br/><br/>当前暂无评论,快来抢沙发!</h1><br/><br/></blockquote>
+    	            
+    	            ';
+    	            
+    	        }else{
+                     //有评论
+    	        
+            	          echo '
+            	          <br/>
+            	          <br/>
+            	        
+            	          <h1>评论区</h1>
+            	        <blockquote><p>';
+            	       
+            	        for($io=0;$io<sizeof($message_username_list);$io++){
+            	            echo '<h1><b>'.($io+1).'楼</b> &nbsp'.$message_time_list[$io].'</h1>';
+            	            echo '<blockquote><p>';
+            	            
+            	            if(isok_user($message_username_list[$io])=='假'){
+                            //如果是匿名
+                            $txtemp=gettx_user($message_username_list[$io]);
+                            if($txtemp=="空"){
+                             echo '
+<div style="float:left;width:auth;">
+
+
+                             '.'<img height="55" width="55" src="img/niming.jpg">'.'
+</div> 
+                            <p><b>&nbsp;'.$message_username_list[$io].'</b>:<br/> <br/><font>&nbsp;&nbsp;'.$message_message_list[$io].'</font></p><br/><br/>'; 
+                                                           
+                            }else{
+                           
+                             echo '
+<div style="float:left;width:auth;">
+
+
+                             '.'<img height="55" width="55" src="img/'.$txtemp.'">'.'
+</div> 
+                            <p><b>&nbsp;'.getname_user($message_username_list[$io]).'</b>:<br/> <br/><font>&nbsp;&nbsp;'.$message_message_list[$io].'</font></p><br/><br/>'; 
+                              
+                              }
+                       
+            	            
+            	             if (isset($_SESSION['user'])) {
+                	             if($_SESSION['user']==$message_username_list[$io]){
+                    	            echo'
+                    	            <div style="text-align:right;">
+                    	            <form method="POST">
+                    	            <input type="hidden" style="border:0px;background:none;" name="id" value="'.$message_id_list[$io].'"></input>
+                    	            <button name="delete_message_submit" type="submit" style="color: rgb(102, 102, 102);" >删除我的评论</button>
+                    	            </form>
+                    	            </div>
+                    	            ';
+                	            }else{
+                	                if($_SESSION['user_type']>7){
+                	                 echo'
+                    	            <div style="text-align:right;">
+                    	            <form method="POST">
+                    	            <input type="hidden" style="border:0px;background:none;" name="id" value="'.$message_id_list[$io].'"></input>
+                    	            <button name="delete_message_submit" type="submit" style="color: rgb(102, 102, 102);" >删除此评论</button>
+                    	            </form>
+                    	            </div>
+                    	            ';
+                	            
+                	                   }
+            	                  }
+            	               }   
+            	            }else{
+            	                
+            	                echo '
+            	            <p><b>'.getname_user($message_username_list[$io]).'</b>:</p><br/><p><font><h1><img width="50" height="50" alt="Image" src="https://www.anqikeji.xyz/img/fh.jpg"><font color="#e33737">该用户涉嫌违规,已被封停使用!</font><br></h1></font></p>';
+            	            if (isset($_SESSION['user'])) {
+            	                if($_SESSION['user_type']==9){
+                	                 echo'
+                    	            <div style="text-align:right;">
+                    	            <form method="POST">
+                    	            <input type="hidden" style="border:0px;background:none;" name="id" value="'.$message_id_list[$io].'"></input>
+                    	            <button name="delete_message_submit" type="submit" style="color: rgb(102, 102, 102);" >删除此评论</button>
+                    	            </form>
+                    	            </div>
+                    	            ';
+                	            
+                	               }
+                	           }    
+            	            }
+            	            
+            	            echo '</p></blockquote> <hr>';
+            	        }
+            	        echo '</p></blockquote>';
+        	       }
+
+        	       //判断是否登陆
+        	       if(!isset($_SESSION['user'])){
+        	      	 echo'
+                   
+                    <p><b>请输入评论:</b></p>
+                    <br/>
+                    <form  method="POST">
+                    <textarea name="message" rows="5" cols="100" style="background-color: rgba(245, 245, 245, 0);"></textarea>
+                    <br/>
+                    <input type="hidden" style="border:0px;background:none;" name="id" value="'.$_GET['list'].'"></input>
+                    <div style="text-align: center;">
+                    <input type="submit" name="nimin_message_submit" class="submit_1"  value="提交评论">
+                    </div>
+        	       ';
+        	   }else{
+        	        echo'
+                   
+                    <p><b>请输入评论:</b></p>
+                    <br/>
+                    <form  method="POST">
+                    <textarea name="message" rows="5" cols="100" style="background-color: rgba(245, 245, 245, 0);"></textarea>
+                    <br/>
+                    <input type="hidden" style="border:0px;background:none;" name="id" value="'.$_GET['list'].'"></input>
+                    <div style="text-align: center;">
+                    	<br/>
+                    <input type="submit" name="shimin_message_submit" class="submit_1"  value="提交评论">
+                	</div>
+        	       ';
+        	       }
+
+		        	
+                }else{
+                //分类显示
+
+                    for($acc=0;$acc < sizeof($id_list);$acc++){
+                    //echo $type_list[$acc];
+                    $sxx=sizeof($id_list)-1;
+                    
+                    $sxx =$sxx -$acc;
+              //      echo $type_list[$sxx];
+                    if($type_list[$sxx]==$_GET['type']){
+                        echo '<h1 class = "postTitle"> 	';
+                		echo '<a id="cb_post_title_url" class="postTitle2" href="index.php?list='. $sxx.'">'.$title_list[ $sxx].'</a>';
+                		echo '</h1>';
+                		echo '<br/>
+
+                		<div class="clear"></div>
+                        	<div class="postBody">
+               <hr>
+                		<div id="cnblogs_post_body" class="blogpost-body">';
+                            //判断是否被封号
+                		if(isok_user($username_list[ $sxx])=='假'){
+                    		$pizza = $content_list[ $sxx];
+                            if(preg_match_all('/src="(.*?)"/i', $pizza, $out)!=0){
+                            $img=$out[0][0];
+                           // echo $img;
+                           
+                        
+                        //echo '<div  style="float:left">';
+                       // echo '<p><img '.$img.' width="90" height="90" />';
+                      //   echo '<b>';   
+                        preg_match_all("/([\x{4e00}-\x{9fa5}]+)/u", $pizza, $word) ;
+                       // for($i=0;$i < sizeof($word[0]);$i++){
+                     //   echo $word[0][$i];
+                      //  }
+                     //echo '</b></p>';   
+                       // echo '</div>';
+                       
+echo'
+
+                        
+                        <div class="cbp_tmicon"></div>
+                        <div class="cbp_tmlabel" data-scroll-reveal="enter right over 1s" >
+                            
+                             <p><span class="blogpic"><a href="/"><img '.$img.'></a></span>
+';
+                        for($i=0;$i < sizeof($word[0])/4;$i++){
+                        echo $word[0][$i].',';
+                        }
+                        echo '....';
+echo '
+                             </p>
+                             <a href="index.php?list='.$sxx.'" target="_blank" class="readmore">查看详情&gt;&gt;</a><br/>
+                        </div>
+                 
+
+
+
+
+
+
+
+
+';
+                        }else{
+                        echo $pizza.'
+                        <a href="index.php?list='.$sxx.'" target="_blank" class="readmore">查看详情&gt;&gt;</a><br/>';
+
+
+                             }
+
+
+                		}else{
+                		    echo '<h1><img width="50" height="50" alt="Image" src="https://www.anqikeji.xyz/img/fh.jpg"><font color="#e33737">该用户涉嫌违规,已被封停使用!</font><br></h1>';
+                		
+                		}
+                		echo '<p>&nbsp;</p></div>
+                		<div id="MySignature"></div>
+                		<div class="clear"></div>
+                		<hr>
+                		<h>发布者:<b><font color="#333333">'.getname_user($username_list[ $sxx]).'</font></b> 浏览量:<b>'.$veiws_list[ $sxx].'</b> 类型:<b>'.$blog_list[$type_list[ $sxx]].' </b>时间:<b>'.$time_list[ $sxx].'</b></h>
+                		
+                		<br/>
+                    </div>
+                                        <br/>
+                    <br/>
+                    <br/>
+         
+                	';
+        }
+                    }
+                    echo '
+                                    		<div class="clear"></div>
+                	
+                    ';
+                    echo "</div>
+                    
+                    ";
+                }
+	}
+		 ?>
+		
+
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+
+<div style="text-align:center;">
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+
+
+		<?php
+            if(!isset($_GET["no"])){
+            if($_GET['list'] < sizeof($id_list)  &&  $_GET['list'] >= 0){
+            echo '
+
+<blockquote>
+            <div class="widget_text widget widget_custom_html">
+            <h3 class="title">
+            <strong></strong></h3>
+            <div style="text-align: center;" class="textwidget custom-html-widget">
+
+
+
+';
+
+$username = $username_list[$_GET['list']];//账号
+$name= getname_user($username);//昵称
+$tx= gettx_user($username);//头像
+$getyuanchuang=getyuanchuang_user($username);
+$getpinglun=getpinglun_user($username);;
+$dengji=getinfo_user($username,"type");
+$yonghuzu=$user_type_list[$dengji+1];
+$qq=getinfo_user($username,"QQ");
+$autograph=getinfo_user($username,"autograph");
+$dianhua=getinfo_user($username,"tel");
+$good=getinfo_user($username,"good");
+$xingbie=getinfo_user($username,"xingbie");
+echo '
+<img width="100" height="100" src="img/'.$tx.'">
+<br/>
+';
+if($xingbie===0){
+echo '<p><b style="color:#546E7A ; font-size:20px;">'.$name.'</b> <b style="color: rgb(227, 55, 55);font-weight:bold;font-size: 26px;">♀</b></p>';
+}else{
+ echo ' <p><b style="color:#546E7A ; font-size:20px;">'.$name.'</b> <b style="color: rgb(65, 140, 175);font-weight:bold;font-size: 26px;">♂</b></p>  ';
+}
+echo '
+<br/><br/>
+<hr>
+<br/>
+<table border="0" width="100%" >
+<tr>
+<td style="text-align: center;width: 33%"><b style="font-weight:15px;color: #263238;" >原创</b></td>
+<td style="text-align: center;width: 33%"><b style="font-weight:15px;color: #263238;">获赞</b></td>
+<td style="text-align: center;width: 33%"><b style="font-weight:15px;color: #263238;">评论</b></td>
+</tr>
+<tr>
+<td style="text-align: center;width: 33%">'.$getyuanchuang.'</td>
+<td style="text-align: center;width: 33%">'.$good.'</td>
+<td style="text-align: center;width: 33%">'.$getpinglun.'</td>
+</tr>
+</table>
+<br/>
+<hr>
+<br/>
+<table border="0" width="100%" >
+<tr>
+<td style="text-align: center;width: 50%"><b style="font-weight:15px;color: #263238;" >等级:'.$dengji.'</b></td>
+<td style="text-align: center;width: 50%"><b style="font-weight:15px;color: #263238;">用户组:'.$yonghuzu.'</b></td>
+</tr>
+</table>
+<br/>
+<hr>
+</br>
+
+<p><b>QQ:'.$qq.'</b></p>
+<p><b>电话:'.$dianhua.'</b></p>
+</br>
+<hr>
+<p><b>个性签名:<br/>'.$autograph.'</b></p>
+
+
+<br/>
+
+</blockquote>            </div>
+            </div>
+';
+}else{
+	echo '	
+            <div class="widget_text widget widget_custom_html">
+            <h3 class="title">
+            <strong>帮博主喂养仓鼠</strong></h3>
+            <div class="textwidget custom-html-widget">
+            <embed type="application/x-shockwave-flash" src="./hamster.swf" width="230" height="210" id="flashID" name="flashID" bgcolor="#FFFFFF" quality="high" flashvars="up_backgroundColor=FFFFFF" wmode="opaque" allowscriptaccess="always">
+            </div>
+            </div>
+            <div class="newsItem">
+
+
+<h2 class="catListTitle">最新消息</h2>
+	<div id="blog-news">
+            
+            ';
+	        	for($index=0;$index<sizeof($title_list);$index++){
+                $ii=sizeof($title_list)-$index-1;
+			    	echo '<a href="index.php?list='.$ii.'"><b>['.$blog_list[$type_list[$ii]]."]</b>".$title_list[$ii].'</a>'."<br/>";
+
+		        	}
+		        echo '	
+		        	</div>
+	<script type="text/javascript">loadBlogNews();</script>
+</div> ';
+						 
+		
+	
+echo '
+
+			<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+		
+		</div>
+
+';
+	
+}
+}else{
+echo '	
+            <div class="widget_text widget widget_custom_html">
+            <h3 class="title">
+            <strong>帮博主喂养仓鼠</strong></h3>
+            <div class="textwidget custom-html-widget">
+            <embed type="application/x-shockwave-flash" src="./hamster.swf" width="230" height="210" id="flashID" name="flashID" bgcolor="#FFFFFF" quality="high" flashvars="up_backgroundColor=FFFFFF" wmode="opaque" allowscriptaccess="always">
+            </div>
+            </div>
+            <div class="newsItem">
+
+
+<h2 class="catListTitle">最新消息</h2>
+	<div id="blog-news">
+            
+            ';
+	        	for($index=0;$index<sizeof($title_list);$index++){
+                $ii=sizeof($title_list)-$index-1;
+			    	echo '<a href="index.php?list='.$ii.'"><b>['.$blog_list[$type_list[$ii]]."]</b>".$title_list[$ii].'</a>'."<br/>";
+
+		        	}
+		        echo '	
+		        	</div>
+	<script type="text/javascript">loadBlogNews();</script>
+</div> ';
+						 
+		
+	
+echo '
+
+			<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+		
+		</div>
+
+';
+
+} ?>
+		<!--end: sideBarMain -->
+
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+	<p><span style="color: rgb(102, 102, 102);">博客用户应遵守相关的法律法规，否则导致一切后果自己负责，<font color="#e33737">本平台不承担任何责任</font>。</span><br></p>	
+<!--done-->
+Copyright &copy;2015-<?php echo date("Y")?>
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+<!--PageEndHtml Block Begin-->
+
+<script type="text/javascript">
+/* 鼠标特效*/
+var a_idx = 0
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array("❤富强❤","❤民主❤","❤文明❤","❤和谐❤","❤自由❤","❤平等❤","❤公正❤","❤法治❤","❤爱国❤","❤敬业❤","❤诚信❤","❤友善❤");
+        var $i = $("<span></span>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+        });
+        $("body").append($i);
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+}); 
+</script>
+<!--
+<script>
+//numbering for pre>code blocks
+$(function(){
+$('pre code').each(function(){
+var lines = $(this).text().split('\n').length - 1;
+var $numbering = $('<ul/>').addClass('pre-numbering');
+$(this)
+.addClass('has-numbering')
+.parent()
+.append($numbering);
+for(i=1;i<=lines;i++){
+$numbering.append($('<li/>').text(i));
+}
+$('.pre-numbering li').css("height",$('pre code').height()/lines);//加上这行
+});
+});
+</script>
+-->
+
+<style>
+pre {
+
+    margin-bottom: 24px;
+    border-radius: 3px;
+    border: 1px solid #C3CCD0;
+    background: #FFF;
+    overflow: hidden;
+}
+
+code {
+  display: block;
+  padding: 12px 24px;
+  overflow-y: auto;
+  font-weight: 300;
+  font-family: Menlo, monospace;
+  font-size: 0.8em;
+}
+
+code.has-numbering {
+    margin-left: 58px;
+}
+
+.pre-numbering {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    padding: 12px 2px 12px 0;
+    border-right: 1px solid #C3CCD0;
+    border-radius: 3px 0 0 3px;
+    background-color: #EEE;
+    text-align: right;
+    font-family: Menlo, monospace;
+    font-size: 0.8em;
+    color: #AAA;
+}
+</style>
+
+<!--PageEndHtml Block End-->
+</body>
+</html>

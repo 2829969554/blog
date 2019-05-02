@@ -1,0 +1,168 @@
+#comment_form_container .author {
+    background: rgba(0,0,0,0.05);
+    color: #333;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+#comment_form_container .comment_textarea {
+    background: rgba(0,0,0,0.1);
+    color: #FFF;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+.CalTitle {
+    background: rgba(0,0,0,0);
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 0;
+    color: #FFF;
+}
+
+.CalDayHeader {
+    background: rgba(0,0,0,0);
+    font-weight: 100;
+    color: #5E5F63;
+}
+
+.CalTitle td {
+    background: rgba(0,0,0,0) !important;
+}
+
+#navigator {
+    background: rgba(0,0,0,0.1);
+    font-size: 15px;
+    border-bottom: rgba(0,0,0,0);
+    border-top: rgba(0,0,0,0);
+    height: 50px;
+    clear: both;
+    margin-top: 25px;
+}
+
+.Cal {
+    background: rgba(0,0,0,0.05);
+    border: none;
+    color: #333;
+}
+
+#site_nav_under {
+    display: none;
+}
+.c_ad_block, .ad_text_commentbox {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+#ad_under_google {
+    height: 0;
+    overflow: hidden;
+}
+#ad_under_google a {
+    display: none;
+}
+#ad_t2{
+    display: none;
+}
+
+body{
+    //background-color: rgb(96,125,139);
+    background-image: url("../img/bord.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+#blog_nav_sitehome {font-size: 17px;}
+#blog_nav_myhome {font-size: 17px;}
+#blog_nav_newpost {font-size: 17px;}
+#blog_nav_contact {font-size: 17px;}
+#blog_nav_rss {font-size: 17px;}
+#blog_nav_admin {font-size: 17px;}
+#blog_stats{font-size:15px;}
+
+#blog-calendar {
+   box shadow 
+    width: 228px;
+    padding-bottom: 5px;
+    margin-bottom: 35px;
+    box-shadow: 0 0 0px rgba(255,255,255,0);
+    border: 0px solid #EDEDED;
+}
+
+#home {
+    
+    width: 85%;
+    background-color: rgba(224,224,224, 0.8);
+}
+
+.postTitle{
+    background-color:rgba(0,0,0,0);
+    font-size:24px;
+    margin-bottom:3px;
+}
+
+#blogTitle {
+    height: 100px; 
+     clear: both;
+    background-color: rgba(245, 245, 245, 0);
+ }
+
+#blogTitle h1 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.5em;
+    margin-top: 10px;
+    color: #548B54;
+}
+
+#blogTitle h2 {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.0em;
+    color: rgb(70,70,70);
+    font-weight: bold;
+    text-align: right;
+    float: left; 
+}
+
+#cnblogs_post_body .cnblogs_code {
+    border: 2px solid rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+#cnblogs_post_body .cnblogs_code .cnblogs_code_toolbar {
+    background-color: rgba(0, 0, 0, 0);
+}
+#cnblogs_post_body .cnblogs_code .cnblogs_code_toolbar . cnblogs_code_copy {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#navList {front-size: 18px;}
+#sideBarMain .newsItem {
+     font-size: 15px;
+     background-color: rgba(0, 0, 0, 0.05);
+}
+
+.feedbackListSubtitle{color: #FFFFFF;}
+
+.catListTitle{ font-size: 15px;}
+
+
+#comment_form_container .comment_textarea {
+    width: 50%;
+    height:150px;
+}
+
+.postTitle a:link, .postTitle a:visited, .postTitle a:active{
+font-size:20px;
+}
+
+ .newsItem, .catListEssay, .catListLink, .catListNoteBook, .catListTag, .catListPostCategory, .catListPostArchive, .catListImageCategory, .catListArticleArchive, .catListView, .catListFeedback, .mySearch, .catListComment, .catListBlogRank, .catList, .catListArticleCategory{
+background: rgba(0,0,0,0.05);}
+.cnblogs_code div, .cnblogs_code_collapse {background:rgba(0,0,0,0);}
+
+.cnblogs_code_toolbar a:hover, .cnblogs_code_toolbar a:link, .cnblogs_code_toolbar a:visited, .cnblogs_code_toolbar a:active, .cnblogs_code_toolbar a:link img, .cnblogs_code_toolbar a:visited img {
+    background-color: rgba(0,0,0,0)!important;
+    border: none!important;
+}

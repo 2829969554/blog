@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="referrer" content="origin" />
+<link type="text/css" rel="stylesheet" href="./css/blog-common.css"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="./css/bundle-SimpleMemory.css"/>
+<link type="text/css" rel="stylesheet" href="./css/421388.css"/>
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./css/bundle-SimpleMemory-mobile.css"/>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<script src="./js/jquery-2.2.0.min.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: { 
+            equationNumbers: { autoNumber: ['AMS'], useLabelIds: true }, extensions: ['extpfeil.js'] 
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script><script src="./js/MathJax.js"></script>
+<script src="./js/blog-common.js" type="text/javascript"></script>
+
+<script type="text/ecmascript">	
+function jump(id){
+	if(confirm('你确定要删除吗？')){
+		location.href='yonghuzu.php?ids='+id;	
+	}
+}
+
+function currentTime(){
+  var d=new Date(),str='';
+  str+=d.getFullYear()+'年';
+  str+=d.getMonth() + 1+'月';
+  str+=d.getDate()+'日';
+  str+=d.getHours()+'时';
+  str+=d.getMinutes()+'分';
+  str+= d.getSeconds()+'秒';
+  return str;
+}
+
+setInterval(function(){$('#time').html(currentTime)},1000);
+</script>
+<title>用户组管理</title>
+</head>
+
+<div id="home" >
+	<div style="text-align:center;" id="blogTitle">		
+		<h1><a id="Header1_HeaderTitle" class="headermaintitle"  href="#">用户组管理</a></h1>
+		<form style="text-align:right;" method="post" action="">
+		<button class="submit_1" style="color:red;" type="submit" name="exit" id="exit">安全退出</button>
+		</form>
+
+	</div><!--end: blogTitle 标题和副标题 -->	
+			<input class="submit_1" style="color:black;" type="button" value="文章管理" name="button" id="button" onclick="location.href='admin.php'">
+
+			<input class="submit_1" style="color:black;width: 90px" type="button" value="文章分类管理" name="button" id="button" onclick="location.href='fenglei.php'">
+
+			<input class="submit_1" style="color:black;" type="button" value="用户管理" name="button" id="button" onclick="location.href='user.php'">
+			<input class="submit_1" style="color:black;width: 90px" type="button" value="用户组管理" name="button" id="button" onclick="location.href='yonghuzu.php'">
+			<input class="submit_1" style="color:black;" type="button" value="个人资料" name="button" id="button" onclick="location.href='gerenziliao.php?ids=<?php	echo $_SESSION['user_id'];	?>'">
+	<br/>
+	<br/>
+	
+	<body>
+	<p><span style="color: rgb(51, 51, 51);">欢迎&nbsp;</span><b style="color: rgb(51, 51, 51);"><?php   echo getname_user($_SESSION['user']).' ['.$_SESSION['user']."]"; ?></b><span style="color: rgb(51, 51, 51);">&nbsp;来到本系统!<br/>您当前用户组为:</span><span style="color: rgb(227, 55, 55);">
+		<?php   
+
+				for($i=0;$i<sizeof($user_type_id);$i++){
+    				if($user_type_id[$i]==$_SESSION['user_type']){
+    								echo '<td>'.$user_type_list[$i].'</td>';
+    				}
+				}
+
+		?></span><br></p>
+		<p>当前时间:<span style="color: green;" id="time"></span></p>
+		<script type="text/javascript">
+			document.getElementById('time').innerHTML=currentTime();
+		</script>
+		<hr>
+	
+		<div class="box">
+		<form action="" id="plsc" method="post">
+		  <h2 class="h2_1"></h2>
+
+
+
+		<table class="table_1" cellspacing="0px" border="0px solid #000">
+		  <tr>
+		  	<td style="border-collapse:collapse"><p>选择</p></td>
+		    <td><p>用户组ID</p></td>
+		    <td><p>用户组名称</p></td>
+		    <td><p>操作</p></td>
+		  </tr>
+		 <?php
+		while($row = $ret->fetchArray(SQLITE3_ASSOC) ){
+			echo '<tr>';
+				echo '<td style="border-collapse:collapse"><input type="checkbox" value="'.$row['id'].'" name="ids[]"></td>';
+				
+				echo '<td class="table_1_a"><a href="show.php?id='.$row['id'].'">'.$row['id'].'</a></td>';
+				echo '<td>'.$row['type'].'</td>';
+				echo '<td><input class="submit_1" type="button" value="删除" onclick="jump('.$row['id'].')"></td>';
+			echo '</tr>';
+		}
+		 
+		 
+		 ?>
+		</table>
+		</form>
+		<br/>
+		<br/>
+		<form method="post" action="">
+
+		id<input type="text" name="ids">
+		name<input type="text" name="names">
+		<input class="submit_1" type="submit" value="增加组别" name="button" id="button">
+		</form>
+
+		</div>
+	</body>
+</div>
+</html>

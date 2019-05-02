@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
+	<link media="all" rel="stylesheet" type="text/css" href="../css/simditor.css" />
+
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/mobilecheck.js"></script>
+    <script type="text/javascript">
+        if(mobilecheck()){
+            $('<link/>', {
+                media: 'all',
+                rel: 'stylesheet',
+                type: 'text/css',
+                href: '../css/mobile.css'
+            }).appendTo('head')
+        }
+    </script>
+</head>
+<body>
+
+<div class="wrapper">
+
+
+
+<section id="page-demo">
+<textarea id="txt-content" data-autosave="editor-content" autofocus required>
+
+</textarea>
+</section>
+
+
+    
+	<script type="text/javascript" src="../js/module.js"></script>
+	<script type="text/javascript" src="../js/uploader.js"></script>
+	<script type="text/javascript" src="../js/hotkeys.js"></script>
+	<script type="text/javascript" src="../js/simditor.js"></script>
+	<script type="text/javascript" src="../js/page-demo.js"></script>
+
+
+
+</div>
+
+
+</body>
+
+</html>
