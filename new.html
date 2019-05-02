@@ -103,7 +103,7 @@ function newblog(){
 
 		$.post(webjson+"?new_blog",
 		  {
-		    "username":username,
+		    "username":decodeURIComponent(username),
 		    "title":document.getElementById("comname").value,
 		    "content":document.getElementById("comment").value,
 		    "type":document.getElementById("typelist").value
