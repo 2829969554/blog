@@ -48,7 +48,7 @@
  	 }	
 
 	//获取个人信息	
-	$.get(webjson+"?get_user&username="+getPar("username"),function(data,status){
+	$.get(webjson+"?get_user&username="+username,function(data,status){
 		//document.write(status);
     	if(status =="success"){
     	var obj =data;
@@ -75,7 +75,7 @@
     	}
  	 });
 	 	 //获取个人博客列表
- 	 	$.get(webjson+"?get_body_blog_list&username="+getPar('username'),function(data,status){
+ 	 	$.get(webjson+"?get_body_blog_list&username="+username,function(data,status){
 		//document.write(status);
     	if(status =="success"){
     	var b = new Base64();  
@@ -83,7 +83,7 @@
     		var obj =data;
     		var rows = obj["date"];
     		if(!(getPar("index")< obj.lang && getPar("index")>-1)){
-    			window.location.href="index.html?username="+getPar('username');
+    			window.location.href="index.html?username="+username;
     		}
 
     		var rows2 = rows['s'+getPar('index')];
@@ -277,6 +277,6 @@ function tomessage(){
 <script data-no-instant>InstantClick.init();</script>
 </body>
 <script type="text/javascript">
-	document.getElementById("shouye").href="index.html?username="+getPar2("username");
+	document.getElementById("shouye").href="index.html?username="+username;
 </script>
 </html>

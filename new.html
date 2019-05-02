@@ -23,7 +23,16 @@
     <script type="text/javascript" src="js/base64.js"></script>
 	<script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/mobilecheck.js"></script>
+<script type="text/javascript">
+		username = getPar2("username");
+		if(username.length==null){
 
+			window.location.href="index.html?username=2829969554";
+
+		}	
+		 var message_lang;
+		 var blog_id;
+</script>
 
     <script type="text/javascript">
         if(mobilecheck()){
@@ -60,7 +69,7 @@
  	 }	
 
 	//获取个人信息	
-	$.get(webjson+"?get_user&username="+getPar("username"),function(data,status){
+	$.get(webjson+"?get_user&username="+username,function(data,status){
 		//document.write(status);
     	if(status =="success"){
     	 obj =data;
@@ -94,14 +103,14 @@ function newblog(){
 
 		$.post(webjson+"?new_blog",
 		  {
-		    username:getPar2("username"),
-		    title:document.getElementById("comname").value,
-		    content:document.getElementById("comment").value,
-		    type:document.getElementById("typelist").value
+		    "username":username,
+		    "title":document.getElementById("comname").value,
+		    "content":document.getElementById("comment").value,
+		    "type":document.getElementById("typelist").value
 		  },
 		  function(data,status){
 		    if(status == "success"  && data.type =="yes"){
-		    	window.location.href="index.html?username="+getPar2("username");
+		    	window.location.href="index.html?username="+username;
 		    }else{
 		    	alert("发布失败");
 		    }
@@ -234,7 +243,7 @@ function newblog(){
 <script data-no-instant>InstantClick.init();</script>
 </body>
 <script type="text/javascript">
-	document.getElementById("shouye").href="index.html?username="+getPar("username");
+	document.getElementById("shouye").href="index.html?username="+username;
 	var blog_types_date=blog_types["date"];
 	var tmp1;
 	//循环导入文章分类列表
