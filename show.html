@@ -74,8 +74,8 @@
 
     	}
  	 });
-	 	 //获取个人博客列表
- 	 	$.get(webjson+"?get_body_blog_list&username="+username,function(data,status){
+	 	 //获取当前博客数据
+ 	 	$.get(webjson+"?get_body_blog&username="+username+"&index="+getPar('index'),function(data,status){
 		//document.write(status);
     	if(status =="success"){
     	var b = new Base64();  
@@ -137,6 +137,7 @@ document.getElementById("post-nav").innerHTML="<a target='_blank' class='next' h
 if(getPar('index') ==obj.lang-1){
 document.getElementById("post-nav").innerHTML="<a target='_blank' class='prev' href='show.html?username="+rows['s'+(obj.lang-2)].username+"&index="+(obj.lang-2)+"'>«  「"+rows['s'+(obj.lang-2)].title+"」</a>";
 }
+
 if(getPar('index') !=obj.lang-1  && getPar('index') !=0){
  		
 document.getElementById("post-nav").innerHTML="<a target='_blank' class='prev' href='show.html?username="+rows['s'+(getPar('index')-1)].username+"&index="+(getPar('index')-1)+"'>«  「"+rows['s'+(getPar('index')-1)].title+"」</a>";
