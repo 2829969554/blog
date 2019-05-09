@@ -5,9 +5,9 @@
 意思就是 接口版本 必须比 模板版本 大 或者一致才能正常使用
 */
 //接口地址
-var webjson="https://www.anqikeji.xyz/api/index.php";
+var webjson="https://www.kk2t.cn/mobile/api.php";
 //头像地址
-var txmlhttp="https://www.anqikeji.xyz/img/";
+var txmlhttp="https://www.kk2t.cn/blog/img/";
 
 		//get
 	function getPar(par){
