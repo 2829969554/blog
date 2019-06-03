@@ -13,21 +13,18 @@
 
 接口例子源码在:/Interface/
 
-访问地址规则:"https://2829969554.github.io/blog/index.html?username=" +源站的博客账号
+访问地址规则:"https://2829969554.github.io/mobile/index.html?username=" +源站的博客账号
 
-访问地址规则:"https://h5.anqikeji.xyz/index.html?username=" +源站的博客账号
+访问地址规则:"https://qnmwdc.coding.io/mobile/index.html?username=" +源站的博客账号
 
-访问地址规则:"https://qnmwdc.coding.io/index.html?username=" +源站的博客账号
-
-访问地址规则:"https://www.anqikeji.xyz/api/ui/index.html?username=" +源站的博客账号
 
 默认是跳转本作者自己的博客********默认是跳转本作者自己的博客************默认是跳转本作者自己的博客
 
-测试地址1:https://2829969554.github.io/blog/index.html?username=2829969554
+测试地址1:https://2829969554.github.io/mobile/index.html?username=2829969554
 
-测试地址2:https://2829969554.github.io/blog/index.html?username=2547130379
+测试地址2:https://2829969554.github.io/mobile/index.html?username=2547130379
 
-测试地址3:https://2829969554.github.io/blog/index.html?username=210654020
+测试地址3:https://2829969554.github.io/mobile/index.html?username=210654020
 
 .........
 
@@ -35,15 +32,14 @@
 
 接口环境:php+sqlite,
 
-接口1位于:https://www.anqikeji.xyz/api/index.php
+接口1位于:https://www.kk2t.cm/mobile/api.php
 
-备用接口1位于:https://h5.anqikeji.xyz/api.php
 
-备用接口2位于:https://qnmwdc.coding.io/api.php
+备用接口位于:https://qnmwdc.coding.io/mobile/api.php
 
 这个接口属于源站的
 
-源站地址:https://www.anqikeji.xyz/
+源站地址:https://www.kk2t.xyz/
 
 源站源码:/源站源码/
 
